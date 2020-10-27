@@ -1,18 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".User.UserDashboard"
-    android:orientation="vertical">
+    tools:openDrawer="start"
+    android:id="@+id/drawer_layout">
 
-    <RelativeLayout
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigation_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/lightWhite"
+        android:theme="@style/navigationTheme"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/menu_header"
+        app:menu="@menu/main_menu"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="20dp">
 
         <ImageView
+            android:id="@+id/menu_id"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:src="@drawable/menu_icon"
@@ -24,12 +42,13 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:padding="5dp"
+            android:onClick="callOwnerScreen"
             android:background="@color/light_yellow"
             android:src="@drawable/add_missing_place_icon" />
 
     </RelativeLayout>
 
-    <ScrollView
+        <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -271,13 +290,6 @@
                         android:textSize="20dp"
                         android:textStyle="bold" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:text="@string/view_all" />
-
 
                 </RelativeLayout>
 
@@ -292,5 +304,7 @@
 
     </ScrollView>
 
+    </LinearLayout>
 
-</LinearLayout>
+
+</androidx.drawerlayout.widget.DrawerLayout>

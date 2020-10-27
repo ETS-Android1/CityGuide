@@ -12,4 +12,18 @@
     <string name="categories">Categories</string>
     <string name="view_all">View All</string>
     <string name="search_text">Search..</string>
+    <string name="home">HOME</string>
+    <string name="missing_place">ADD MISSING PLACE</string>
+    <string name="profile">Profile</string>
+    <string name="logout">Logout</string>
+    <string name="login">Login</string>
+
+    <!--Owner page strings -->
+
+    <string name="sign_up">Sign UP</string>
+    <string name="owner_startup_heading">Grow\nYour Business</string>
+    <string name="owner_startup_page_tagline">We will help you to grow your business using online services!</string>
+    <string name="create_account">Create\nAccount</string>
+    <string name="how_we_work">How We Work?</string>
+    <string name="forget_password">Forgot Password</string>
 </resources>

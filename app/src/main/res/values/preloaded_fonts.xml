@@ -3,5 +3,8 @@
     <array name="preloaded_fonts" translatable="false">
         <item>@font/baloo</item>
         <item>@font/londrina_solid</item>
+        <item>@font/muli_bold</item>
+        <item>@font/muli_extrabold</item>
+        <item>@font/muli_extralight</item>
     </array>
 </resources>

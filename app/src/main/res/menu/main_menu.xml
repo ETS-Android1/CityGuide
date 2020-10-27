@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:title="@string/home"/>
+        <item
+            android:id="@+id/nav_add_missing_place"
+            android:title="@string/missing_place"/>
+    </group>
+
+    <item android:title="Profile">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_login"
+                    android:title="@string/login"/>
+                <item
+                    android:id="@+id/nav_profile"
+                    android:title="@string/profile"/>
+                <item
+                    android:id="@+id/nav_logout"
+                    android:title="@string/logout"/>
+            </group>
+        </menu>
+    </item>
+
+    <item android:title="Categories">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_restaurants"
+                    android:title="@string/restaurants"/>
+                <item
+                    android:id="@+id/nav_hotels"
+                    android:title="@string/hotels"/>
+                <item
+                    android:id="@+id/nav_theaters"
+                    android:title="@string/movie_halls"/>
+                <item
+                    android:id="@+id/nav_shops"
+                    android:title="@string/shops"/>
+            </group>
+        </menu>
+    </item>
+
+</menu>
