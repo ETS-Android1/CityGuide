@@ -8,11 +8,12 @@
     </style>
 
     <style name="navigationTheme">
-        <!--coor of text and icon when selected -->
+        <!--color of text and icon when selected -->
         <item name="colorPrimary">@color/colorPrimary</item>
 
         <!--background color when SELECTED-->
         <item name="colorControlHighlight">@color/colorAccent</item>
     </style>
+
 
 </resources>
