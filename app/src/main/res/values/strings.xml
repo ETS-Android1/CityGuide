@@ -25,5 +25,12 @@
     <string name="owner_startup_page_tagline">We will help you to grow your business using online services!</string>
     <string name="create_account">Create\nAccount</string>
     <string name="how_we_work">How We Work?</string>
-    <string name="forget_password">Forgot Password</string>
+    <string name="forget_password">Forgot Password ?</string>
+    <string name="have_an_account">Have An Account ?</string>
+    <string name="todo">TODO</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="button">Button</string>
+    <string name="or">Or</string>
+    <string name="new_user_sign_up">New User ? Sign Up</string>
 </resources>

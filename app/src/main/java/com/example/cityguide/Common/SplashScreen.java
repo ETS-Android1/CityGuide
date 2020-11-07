@@ -5,15 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.example.cityguide.R;
-import com.example.cityguide.User.UserDashboard;
 
 public class SplashScreen extends AppCompatActivity {
 
@@ -43,7 +40,7 @@ public class SplashScreen extends AppCompatActivity {
             @Override
             public void run() {
                                                 //from current activity //to dashboard activity
-                Intent intent = new Intent(getApplicationContext(), UserDashboard.class);
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(intent);
                 finish();//you should see the splashscree only when u open the apllication but not when you go back
             }
