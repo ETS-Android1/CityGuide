@@ -11,10 +11,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.cityguide.Common.LoginActivity;
 import com.example.cityguide.R;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class SignUp extends AppCompatActivity {
+
+    FirebaseAuth firebaseAuth;
 
     TextInputLayout regName, regUsername, regEmail, regPhoneno, regPassword;
     Button reg_btn,HaveanAccount;
@@ -29,6 +32,7 @@ public class SignUp extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
+        firebaseAuth = FirebaseAuth.getInstance();
         callLogin = findViewById(R.id.HaveanAccount);
         callLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -170,7 +174,7 @@ public class SignUp extends AppCompatActivity {
         String password = regPassword.getEditText().getText().toString();
         UserHelperClass helperClass = new UserHelperClass(name, username, email, phoneNo,password);
         reference.child(phoneNo).setValue(helperClass);
-
+        firebaseAuth.createUserWithEmailAndPassword(email, password);
         Toast.makeText(SignUp.this,"Registered Successfully",Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(SignUp.this, LoginActivity.class);
         startActivity(intent);
