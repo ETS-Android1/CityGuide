@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LocationOwner.OwnerLogin">
+
+    <ImageView
+        android:id="@+id/img_owner"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:src="@drawable/owner_login_top_image"
+        android:scaleType="centerCrop"/>
+
+    <TextView
+        android:id="@+id/owner_login_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Owner Login Form"
+        android:gravity="center"
+        android:layout_below="@id/img_owner"
+        android:layout_marginTop="30dp"
+        android:textStyle="bold"
+        android:textSize="30dp"/>
+
+    <EditText
+        android:id="@+id/owner_login_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_below="@id/owner_login_title"
+        android:hint="Email"
+        android:textSize="16dp"
+        android:inputType="textEmailAddress"
+        android:layout_marginTop="20dp"/>
+
+    <EditText
+        android:id="@+id/owner_login_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_below="@id/owner_login_email"
+        android:hint="Password"
+        android:textSize="16dp"
+        android:inputType="textPassword"
+        android:layout_marginTop="20dp"/>
+
+    <Button
+        android:layout_below="@id/owner_login_password"
+        android:layout_marginTop="40dp"
+        android:id="@+id/owner_login_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:background="#000"
+        android:text="Login"
+        android:textColor="#fff" />
+
+    <Button
+        android:layout_below="@id/owner_login_btn"
+        android:id="@+id/owner_HaveAnAccount_btn"
+        android:layout_marginTop="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Dont have an account? SignUp"
+        android:background="#00000000"/>
+
+
+</RelativeLayout>

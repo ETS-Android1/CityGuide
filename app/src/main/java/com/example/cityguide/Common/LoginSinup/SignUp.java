@@ -166,7 +166,6 @@ public class SignUp extends AppCompatActivity {
             return;
         }
 
-
         String name = regName.getEditText().getText().toString();
         String username = regUsername.getEditText().getText().toString();
         String email = regEmail.getEditText().getText().toString();
