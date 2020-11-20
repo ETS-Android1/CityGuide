@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".User.OwnerAddNewActivity">
+
+    <TextView
+        android:id="@+id/add_new_place_heading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="27dp"
+        android:text="Add New Place"
+        android:textAlignment="center"
+        android:textSize="35sp"
+        android:textStyle="bold"/>
+
+    <ImageView
+        android:id="@+id/select_place_image"
+        android:layout_below="@+id/add_new_place_heading"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:cropToPadding="false"
+        android:scaleType="centerCrop"
+        android:src="@drawable/add_image_icon" />
+
+    <EditText
+        android:id="@+id/place_name"
+        android:layout_below="@+id/select_place_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:layout_marginTop="20dp"
+        android:padding="20dp"
+        android:hint="Place Name"
+        android:layout_marginLeft="45dp"
+        android:layout_marginRight="45dp"/>
+
+    <EditText
+        android:id="@+id/place_description"
+        android:layout_below="@+id/place_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:layout_marginTop="6dp"
+        android:padding="20dp"
+        android:hint="Place Description"
+        android:layout_marginLeft="45dp"
+        android:layout_marginRight="45dp"/>
+
+    <EditText
+        android:id="@+id/place_address"
+        android:layout_below="@+id/place_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:layout_marginTop="6dp"
+        android:padding="20dp"
+        android:hint="Place Address"
+        android:layout_marginLeft="45dp"
+        android:layout_marginRight="45dp"/>
+
+    <Button
+        android:id="@+id/add_new_place"
+        android:layout_below="@id/place_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#000"
+        android:text="Add Place"
+        android:textColor="#fff"
+        android:layout_marginLeft="45dp"
+        android:layout_marginRight="45dp"
+        android:padding="17dp"
+        android:layout_marginTop="30dp"
+        android:textSize="18sp"
+        android:textAllCaps="true"/>
+
+
+</RelativeLayout>

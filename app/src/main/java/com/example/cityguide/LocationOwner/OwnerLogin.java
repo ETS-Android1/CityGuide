@@ -99,6 +99,5 @@ public class OwnerLogin extends AppCompatActivity {
             return false;
         } else return true;
 
-
     }
 }
