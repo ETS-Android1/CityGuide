@@ -135,4 +135,10 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         return true; //we are going to handle all the onclick items in navigation bar
     }
+    public void callRestListView(View view)
+    {
+
+        startActivity(new Intent(UserDashboard.this,RestaurantListView.class));
+
+    }
 }

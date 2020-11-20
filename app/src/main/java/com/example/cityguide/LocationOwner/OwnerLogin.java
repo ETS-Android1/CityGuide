@@ -43,8 +43,8 @@ public class OwnerLogin extends AppCompatActivity {
         if(!validateFields()){
             return;
         }
-        final String _phone = phone.getText().toString().trim();
-        final String _password = password.getText().toString().trim();
+        final String _phone = phone.getText().toString();
+        final String _password = password.getText().toString();
 
         //final DatabaseReference RootRef;
         //RootRef = FirebaseDatabase.getInstance().getReference();

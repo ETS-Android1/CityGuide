@@ -6,6 +6,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.cityguide.Common.LoginSinup.OwnerStartupPage;
+import com.example.cityguide.Common.RestaurantListView;
 import com.example.cityguide.HelperClasses.Home.CategoriesAdapter;
 import com.example.cityguide.HelperClasses.Home.CategoriesHelperClass;
 import com.example.cityguide.HelperClasses.Home.FeaturedAdapter;
@@ -30,7 +32,7 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
     RecyclerView categoriesRecycler;
     RecyclerView.Adapter adapter;
     ImageView menuIcon;
-
+    ImageView callRestView;
 
     //drawer menu
     DrawerLayout drawerLayout;
@@ -42,6 +44,7 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
         super.onCreate(savedInstanceState);
         //to take out the status bar
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
 
         setContentView(R.layout.activity_user_dashboard);
 
@@ -63,8 +66,23 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
 
         //Navigation bar
         navigationDrawer();
+//        callRestView = findViewById(R.id.RestaurantView);
+//        callRestView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(UserDashboard.this,RestaurantListView.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK));
+//            }
+//        });
+
 
     }
+//    public void callRestListView(View view)
+//    {
+//
+//        startActivity(new Intent(UserDashboard.this,RestaurantListView.class));
+//        finish();
+//    }
+
 
     private void navigationDrawer() {
         navigationView.bringToFront();
@@ -128,7 +146,8 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
 
     public void callOwnerScreen(View view)
     {
-        startActivity(new Intent(getApplicationContext(), OwnerStartupPage.class));
+
+        startActivity(new Intent(getApplicationContext(), RestaurantListView.class));
     }
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {

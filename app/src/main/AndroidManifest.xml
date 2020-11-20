@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".User.OwnerAddNewActivity"></activity>
+        <activity android:name=".Common.RestaurantListView"></activity>
+        <activity android:name=".User.OwnerAddNewActivity" />
         <activity android:name=".LocationOwner.OwnerDashboard" />
         <activity android:name=".LocationOwner.OwnerLogin" />
         <activity android:name=".LocationOwner.OwnerRegistration" />

@@ -121,6 +121,8 @@
                             android:layout_width="35dp"
                             android:layout_height="35dp"
                             android:layout_centerInParent="true"
+                            android:id="@+id/RestaurantView"
+                            android:onClick="callRestListView"
                             android:src="@drawable/restaurant_icon" />
 
 
