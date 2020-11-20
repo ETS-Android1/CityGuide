@@ -34,15 +34,17 @@ public class OwnerLogin extends AppCompatActivity {
             }
         });
 
-        phone = findViewById(R.id.owner_login_phone);
-        password = findViewById(R.id.owner_login_password);
+//        phone = findViewById(R.id.owner_login_phone);
+//        password = findViewById(R.id.owner_login_password);
     }
 
     public void letTheOwnerLoggedIn(View view)
     {
-        if(!validateFields()){
-            return;
-        }
+//        if(!validateFields()){
+//            return;
+//        }
+        phone = findViewById(R.id.owner_login_phone);
+        password = findViewById(R.id.owner_login_password);
         final String _phone = phone.getText().toString();
         final String _password = password.getText().toString();
 
@@ -52,13 +54,13 @@ public class OwnerLogin extends AppCompatActivity {
 
         Query checkUser = FirebaseDatabase.getInstance().getReference("owners").orderByChild("phone").equalTo((_phone));
 
-        checkUser.addListenerForSingleValueEvent(new ValueEventListener() {
+        checkUser.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot.exists()){
                     phone.setError(null);
 
-                    String systemPassword = dataSnapshot.child("phone").child("password").getValue(String.class);
+                    String systemPassword = dataSnapshot.child(phone.getText().toString()).child("password").getValue(String.class);
                     if(systemPassword.equals(_password)){
                         password.setError(null);
 
