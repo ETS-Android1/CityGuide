@@ -25,15 +25,15 @@
         android:textSize="30dp"/>
 
     <EditText
-        android:id="@+id/owner_login_email"
+        android:id="@+id/owner_login_phone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:layout_below="@id/owner_login_title"
-        android:hint="Email"
+        android:hint="Phone Number"
         android:textSize="16dp"
-        android:inputType="textEmailAddress"
+        android:inputType="number"
         android:layout_marginTop="20dp"/>
 
     <EditText
@@ -42,21 +42,22 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-        android:layout_below="@id/owner_login_email"
+        android:layout_below="@id/owner_login_phone"
         android:hint="Password"
         android:textSize="16dp"
         android:inputType="textPassword"
         android:layout_marginTop="20dp"/>
 
     <Button
-        android:layout_below="@id/owner_login_password"
-        android:layout_marginTop="40dp"
         android:id="@+id/owner_login_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginRight="10dp"
+        android:layout_below="@id/owner_login_password"
         android:layout_marginLeft="10dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="10dp"
         android:background="#000"
+        android:onClick="letTheOwnerLoggedIn"
         android:text="Login"
         android:textColor="#fff" />
 
