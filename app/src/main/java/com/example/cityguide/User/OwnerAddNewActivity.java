@@ -42,7 +42,7 @@ public class OwnerAddNewActivity extends AppCompatActivity {
     private String productRandomKey, downloadImageUrl;
     private StorageReference PlaceImagesRef;
     private DatabaseReference PlaceRef;
-
+    private DatabaseReference rest;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +51,7 @@ public class OwnerAddNewActivity extends AppCompatActivity {
         CategoryName = getIntent().getExtras().get("category").toString();
         PlaceImagesRef = FirebaseStorage.getInstance().getReference().child("Place Images");
         PlaceRef = FirebaseDatabase.getInstance().getReference().child("Places");
+        rest = FirebaseDatabase.getInstance().getReference().child("Restaurant");
         //Toast.makeText(this, CategoryName, Toast.LENGTH_SHORT).show();
         AddNewPlaceButton = (Button) findViewById(R.id.add_new_place);
         InputPlaceImage = (ImageView) findViewById(R.id.select_place_image);
@@ -187,6 +188,24 @@ public class OwnerAddNewActivity extends AppCompatActivity {
         placeMap.put("category", CategoryName);
         placeMap.put("address", Address);
         placeMap.put("pname", Pname);
+        // check Here again
+        if(CategoryName.equals("restaurants")) {
+            HashMap<String, Object> map = new HashMap<>();
+            map.put("address", Address);
+            map.put("description", Description);
+            map.put("image", downloadImageUrl);
+            map.put("restName", Pname);
+            rest.child(productRandomKey).updateChildren(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if (task.isSuccessful()) {
+
+                    }
+                }
+            });
+        }
+
+
 
         PlaceRef.child(productRandomKey).updateChildren(placeMap)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {

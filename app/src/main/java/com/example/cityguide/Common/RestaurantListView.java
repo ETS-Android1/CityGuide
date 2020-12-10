@@ -1,5 +1,6 @@
 package com.example.cityguide.Common;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -41,20 +42,25 @@ public class RestaurantListView extends AppCompatActivity {
     }
 
     private void loadView() {
-        FirebaseRecyclerAdapter<restaurant, RestaurantViewHolder> adapter = new FirebaseRecyclerAdapter<restaurant, RestaurantViewHolder>(
+
+         FirebaseRecyclerAdapter<restaurant, RestaurantViewHolder> adapter = new FirebaseRecyclerAdapter<restaurant, RestaurantViewHolder>(
                 restaurant.class,R.layout.rowrestaurant,
                 RestaurantViewHolder.class,restaurants
         ) {
             @Override
             protected void populateViewHolder(RestaurantViewHolder restaurantViewHolder, restaurant model, int position) {
-                restaurantViewHolder.restName.setText(model.getName());
+                restaurantViewHolder.restName.setText(model.getRestName());
                 Picasso.get().load(model.getImage()).into(restaurantViewHolder.rest_image);
                 final restaurant clickItem = model;
                 restaurantViewHolder.setItemClickListener(new ItemClickListener() {
                     @Override
                     public void onClick(View view, int position, boolean isLongClick) {
-                        Toast.makeText(RestaurantListView.this,""+clickItem.getName(),Toast.LENGTH_SHORT).show();
 
+
+                        // Start New Activity
+                        Intent restDetail = new Intent(RestaurantListView.this,RestDetails.class);
+                        restDetail.putExtra("RestId", getRef(position).getKey());
+                        startActivity(restDetail);
                     }
                 });
 

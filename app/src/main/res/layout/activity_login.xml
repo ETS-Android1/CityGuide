@@ -76,7 +76,7 @@
         android:layout_width="346dp"
         android:layout_height="54dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:autofillHints=""
         android:background="@drawable/round_boder"
@@ -88,7 +88,7 @@
         android:scrollbarAlwaysDrawHorizontalTrack="false"
         android:scrollbarAlwaysDrawVerticalTrack="false"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.424"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inputEmail" />
 
@@ -136,46 +136,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ForgotPassword" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="8dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/or">
-
-        <ImageView
-            android:id="@+id/googleImg"
-            android:layout_width="290dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:contentDescription="@string/todo"
-            app:srcCompat="@drawable/common_google_signin_btn_icon_dark" />
-
-        <ImageView
-            android:id="@+id/githubImg"
-            android:layout_width="272dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            app:srcCompat="@mipmap/ic_launcher_foreground" />
-    </LinearLayout>
-
     <TextView
         android:id="@+id/newUser"
         android:layout_width="223dp"
         android:layout_height="47dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="4dp"
         android:layout_marginEnd="16dp"
+        android:layout_marginBottom="68dp"
         android:text="@string/new_user_sign_up"
         android:textColor="@color/colorBlue"
         android:textSize="24sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.576"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

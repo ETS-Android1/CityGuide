@@ -42,8 +42,17 @@ public class SplashScreen extends AppCompatActivity {
                                                 //from current activity //to dashboard activity
                 Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(intent);
-                finish();//you should see the splashscree only when u open the apllication but not when you go back
+                finish();//you should see the splashscreen only when u open the application but not when you go back
             }
         },SPLASH_TIMER);//this is basically to change to user dashboard after specified time i.e,5000ms
+    }
+
+    public static class RestDetails extends AppCompatActivity {
+
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_rest_details);
+        }
     }
 }

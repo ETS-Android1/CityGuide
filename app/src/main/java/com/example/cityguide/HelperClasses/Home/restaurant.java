@@ -3,34 +3,51 @@ package com.example.cityguide.HelperClasses.Home;
 public class restaurant {
 
 
-        private String Name;
-        private String Image;
-
+        private String restName;
+        private String image;
+        private String description;
+        private String address;
         public restaurant()
         {
 
         }
 
-        public restaurant(String name, String image) {
-            Name = name;
-            Image = image;
-        }
+    public restaurant(String restName, String image, String description, String address) {
+        this.restName = restName;
+        this.image = image;
+        this.description = description;
+        this.address = address;
+    }
 
-        public String getName() {
-            return Name;
-        }
+    public String getRestName() {
+        return restName;
+    }
 
-        public void setName(String name) {
-            Name = name;
-        }
+    public void setRestName(String restName) {
+        this.restName = restName;
+    }
 
-        public String getImage() {
-            return Image;
-        }
+    public String getImage() {
+        return image;
+    }
 
-        public void setImage(String image) {
-            Image = image;
-        }
+    public void setImage(String image) {
+        this.image = image;
+    }
 
+    public String getDescription() {
+        return description;
+    }
 
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
 }

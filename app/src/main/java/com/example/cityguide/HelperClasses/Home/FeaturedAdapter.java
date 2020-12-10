@@ -26,7 +26,7 @@ public class FeaturedAdapter extends RecyclerView.Adapter<FeaturedAdapter.Featur
     @Override
     public FeaturedViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.featured_card_design,parent,false);
-        //we havw to pass the view to featured viewHolder
+        //we have to pass the view to featured viewHolder
         FeaturedViewHolder featuredViewHolder = new FeaturedViewHolder(view);
 
 
