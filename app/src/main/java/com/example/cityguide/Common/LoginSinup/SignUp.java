@@ -160,6 +160,21 @@ public class SignUp extends AppCompatActivity {
         }
     }
 
+    public String removeSpecialCharacters(String str)
+    {
+        String resultStr="";
+
+        for (int i=0;i<str.length();i++)
+        {
+            if (str.charAt(i)>64 && str.charAt(i)<=122)
+            {
+
+                resultStr=resultStr+str.charAt(i);
+            }
+        }
+        return resultStr;
+    }
+
     public void registerUser(View view)
     {
         if(!validateName() | !validatePassword() | !validateUsername() | !validatePhoneNo() | !validateEmail() ){
@@ -171,9 +186,11 @@ public class SignUp extends AppCompatActivity {
         String email = regEmail.getEditText().getText().toString();
         String phoneNo = regPhoneno.getEditText().getText().toString();
         String password = regPassword.getEditText().getText().toString();
+        String newEmail = removeSpecialCharacters(email);
         UserHelperClass helperClass = new UserHelperClass(name, username, email, phoneNo,password);
-        reference.child(phoneNo).setValue(helperClass);
+        reference.child(newEmail).setValue(helperClass);
         firebaseAuth.createUserWithEmailAndPassword(email, password);
+
         Toast.makeText(SignUp.this,"Registered Successfully",Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(SignUp.this, LoginActivity.class);
         startActivity(intent);

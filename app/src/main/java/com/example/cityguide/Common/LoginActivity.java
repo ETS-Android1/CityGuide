@@ -18,6 +18,12 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 public class LoginActivity extends AppCompatActivity {
     
@@ -54,6 +60,25 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+    public String removeSpecialCharacters(String str)
+    {
+        String resultStr="";
+
+        for (int i=0;i<str.length();i++)
+        {
+            if (str.charAt(i)>64 && str.charAt(i)<=122)
+            {
+
+                resultStr=resultStr+str.charAt(i);
+            }
+        }
+        return resultStr;
+    }
+
+    public void onBackPressed() {
+        finishAffinity();
+    }
+
     private void loginUser(String e,String p)
     {
         String val = email.getText().toString();
@@ -80,8 +105,43 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
-                    Toast.makeText(LoginActivity.this,"Login Successful",Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(LoginActivity.this, UserDashboard.class));
+
+                    final String userEnteredEmail = email.getText().toString();
+                    String userEnteredPassword = password.getText().toString();
+                    final String modifiedEmail = removeSpecialCharacters(userEnteredEmail);
+
+                    DatabaseReference reference = FirebaseDatabase.getInstance().getReference("users");
+
+                    Query checkUser = reference.orderByChild("email").equalTo(userEnteredEmail);
+
+                    checkUser.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                            String nameFromDB = dataSnapshot.child(modifiedEmail).child("name").getValue(String.class);
+                            String usernameFromDB = dataSnapshot.child(modifiedEmail).child("username").getValue(String.class);
+                            String phoneNoFromDB = dataSnapshot.child(modifiedEmail).child("phoneNo").getValue(String.class);
+                            String emailFromDB = dataSnapshot.child(modifiedEmail).child("email").getValue(String.class);
+                            Intent intent = new Intent(getApplicationContext(), UserDashboard.class);
+                            intent.putExtra("name", nameFromDB);
+                            intent.putExtra("username", usernameFromDB);
+                            intent.putExtra("email", emailFromDB);
+                            intent.putExtra("phoneNo", phoneNoFromDB);
+//                            Toast.makeText(LoginActivity.this,nameFromDB,Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(LoginActivity.this,phoneNoFromDB,Toast.LENGTH_SHORT).show();
+
+                            startActivity(intent);
+
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
+
+//                    Toast.makeText(LoginActivity.this,"Login Successful",Toast.LENGTH_SHORT).show();
+//                    startActivity(new Intent(LoginActivity.this, UserDashboard.class));
 
                 }else{
                     Toast.makeText(LoginActivity.this,"Failed to login! Please check your credentials",Toast.LENGTH_LONG).show();

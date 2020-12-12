@@ -6,7 +6,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,7 +14,6 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.cityguide.Common.LoginSinup.OwnerStartupPage;
 import com.example.cityguide.Common.RestaurantListView;
 import com.example.cityguide.HelperClasses.Home.CategoriesAdapter;
 import com.example.cityguide.HelperClasses.Home.CategoriesHelperClass;
@@ -151,6 +149,21 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
     }
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        return true; //we are going to handle all the onclick items in navigation bar
+        //we are going to handle all the onclick items in navigation bar
+        switch (item.getItemId()){
+            case R.id.nav_home:
+                break;
+            case R.id.nav_restaurants:
+                Intent intent = new Intent(UserDashboard.this, RestaurantListView.class);
+                startActivity(intent);
+                break;
+            case R.id.nav_profile:
+                Intent intent2 = new Intent(UserDashboard.this, UserProfile.class);
+                startActivity(intent2);
+                break;
+        }
+
+        drawerLayout.closeDrawer(GravityCompat.START);
+        return true;
     }
 }

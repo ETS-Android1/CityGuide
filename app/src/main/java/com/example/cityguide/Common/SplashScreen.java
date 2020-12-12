@@ -1,7 +1,5 @@
 package com.example.cityguide.Common;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -9,6 +7,8 @@ import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.cityguide.R;
 
@@ -40,7 +40,7 @@ public class SplashScreen extends AppCompatActivity {
             @Override
             public void run() {
                                                 //from current activity //to dashboard activity
-                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
                 startActivity(intent);
                 finish();//you should see the splashscreen only when u open the application but not when you go back
             }
