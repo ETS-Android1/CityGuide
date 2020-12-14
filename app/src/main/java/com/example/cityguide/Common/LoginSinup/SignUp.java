@@ -187,7 +187,7 @@ public class SignUp extends AppCompatActivity {
         String phoneNo = regPhoneno.getEditText().getText().toString();
         String password = regPassword.getEditText().getText().toString();
         String newEmail = removeSpecialCharacters(email);
-        UserHelperClass helperClass = new UserHelperClass(name, username, email, phoneNo,password);
+        UserHelperClass helperClass = new UserHelperClass(name, username, email, phoneNo);
         reference.child(newEmail).setValue(helperClass);
         firebaseAuth.createUserWithEmailAndPassword(email, password);
 

@@ -10,7 +10,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.cityguide.Common.UserDashboard;
 import com.example.cityguide.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -88,11 +87,7 @@ public class OwnerLogin extends AppCompatActivity {
         });
     }
 
-    public void onBackPressed()
-    {
-        Intent intent = new Intent(OwnerLogin.this, UserDashboard.class);
-        startActivity(intent);
-    }
+
 
     private boolean validateFields(){
         String _phone = phone.getText().toString().trim();

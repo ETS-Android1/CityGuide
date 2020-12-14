@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.cityguide.Common.LoginSinup.SignUp;
+import com.example.cityguide.LocationOwner.OwnerLogin;
 import com.example.cityguide.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -30,7 +31,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText email;
     private EditText password;
     private Button login;
-    private TextView callSignUp;
+    private TextView callSignUp,forgotPassword, callOwner;
     private FirebaseAuth auth;
 
     @Override
@@ -41,6 +42,8 @@ public class LoginActivity extends AppCompatActivity {
         password = (EditText) findViewById(R.id.inputPassword);
         login = findViewById(R.id.loginButton);
         callSignUp = findViewById(R.id.newUser);
+        callOwner = findViewById(R.id.callOwnerPage);
+        forgotPassword = findViewById(R.id.ForgotPassword);
         auth = FirebaseAuth.getInstance();
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,6 +61,23 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        forgotPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, ForgotPassword.class);
+                startActivity(intent);
+            }
+        });
+
+        callOwner.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, OwnerLogin.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     public String removeSpecialCharacters(String str)
