@@ -43,7 +43,7 @@ public class RestaurantListView extends AppCompatActivity {
 
     private void loadView() {
 
-         FirebaseRecyclerAdapter<restaurant, RestaurantViewHolder> adapter = new FirebaseRecyclerAdapter<restaurant, RestaurantViewHolder>(
+        FirebaseRecyclerAdapter<restaurant, RestaurantViewHolder> adapter = new FirebaseRecyclerAdapter<restaurant, RestaurantViewHolder>(
                 restaurant.class,R.layout.rowrestaurant,
                 RestaurantViewHolder.class,restaurants
         ) {
