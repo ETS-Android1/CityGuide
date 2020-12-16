@@ -61,65 +61,90 @@
             android:layout_marginTop="50dp"
             android:padding="20dp">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/full_name_profile"
+            <TextView
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:hint="Full Name">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="P Sai Deekshith" />
 
 
-            </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/user_nane_profile"
+
+            </TextView>
+            <TextView
+                android:id="@+id/full_name_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bungee"
+                android:textSize="25sp"/>
+<!--            from here-->
+            <TextView
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:hint="Username">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="deekshithsai39" />
 
 
-            </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/email_profile"
+
+            </TextView>
+            <TextView
+                android:id="@+id/user_nane_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bungee"
+                android:textSize="25sp"/>
+
+
+
+<!--from here-->
+
+            <TextView
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:hint="E-mail">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="deekshithsai39@gmail.com" />
+                android:hint="Email">
 
 
-            </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/phone_no_profile"
+
+
+            </TextView>
+            <TextView
+                android:id="@+id/email_profile"
+                android:layout_width="wrap_content"
+                android:fontFamily="@font/bungee"
+                android:textSize="25sp"
+                android:layout_height="wrap_content"/>
+
+<!--from here-->
+            <TextView
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:hint="Phone Number">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="9035976702" />
 
 
-            </com.google.android.material.textfield.TextInputLayout>
+
+
+            </TextView>
+            <TextView
+                android:id="@+id/phone_no_profile"
+                android:layout_width="wrap_content"
+                android:text="sai"
+                android:fontFamily="@font/bungee"
+                android:textSize="25sp"
+                android:layout_height="wrap_content"/>
+
+
+
 
         </LinearLayout>
 
