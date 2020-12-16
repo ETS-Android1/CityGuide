@@ -67,5 +67,14 @@
 
     </LinearLayout>
 
+    <Button
+        android:id="@+id/owner_logout"
+        android:layout_marginTop="80dp"
+        android:layout_below="@id/linear_category_layout2"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Logout" />
+
 
 </RelativeLayout>

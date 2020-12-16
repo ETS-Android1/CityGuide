@@ -12,6 +12,8 @@ public class FeaturedHelperClass {
         this.decription = decription;
     }
 
+    //public void display()
+
     public int getImage() {
         return image;
     }

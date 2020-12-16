@@ -42,7 +42,7 @@ public class addReview extends AppCompatActivity {
         setContentView(R.layout.activity_add_review);
         rateCount = findViewById(R.id.ratingCount);
         ratingBar = findViewById(R.id.ratingBar);
-        review = findViewById(R.id.writeReview);
+        //review = findViewById(R.id.writeReview);
         submit = findViewById(R.id.submitButton);
         showRating = findViewById(R.id.showRating);
         database = FirebaseDatabase.getInstance();
@@ -112,7 +112,7 @@ public class addReview extends AppCompatActivity {
                             rest.child(restId).updateChildren(map).addOnSuccessListener(new OnSuccessListener() {
                                 @Override
                                 public void onSuccess(Object o) {
-                                    Toast.makeText(getApplicationContext(), "Your Rating Successfully Noted", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(), "Thank you for rating us!", Toast.LENGTH_SHORT).show();
                                     Intent restDetail = new Intent(addReview.this, RestDetails.class);
                                     restDetail.putExtra("RestId",restId);
                                     startActivity(restDetail);

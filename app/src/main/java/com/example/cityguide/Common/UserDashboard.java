@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,11 +16,13 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.cityguide.BangalorePalace_feat;
 import com.example.cityguide.Common.LoginSinup.OwnerStartupPage;
 import com.example.cityguide.HelperClasses.Home.CategoriesAdapter;
 import com.example.cityguide.HelperClasses.Home.CategoriesHelperClass;
 import com.example.cityguide.HelperClasses.Home.FeaturedAdapter;
 import com.example.cityguide.HelperClasses.Home.FeaturedHelperClass;
+import com.example.cityguide.Lalbagh_feat;
 import com.example.cityguide.R;
 import com.example.cityguide.User.UserProfile;
 import com.google.android.material.navigation.NavigationView;
@@ -31,7 +34,8 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
 
     RecyclerView featuredRecycler;
     RecyclerView categoriesRecycler;
-    RecyclerView.Adapter adapter;
+    RecyclerView.Adapter cadapter;
+    FeaturedAdapter adapter;
     ImageView menuIcon;
 
 
@@ -110,8 +114,8 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
         categories.add(new CategoriesHelperClass(R.drawable.restaurant_image,"Theaters"));
         categories.add(new CategoriesHelperClass(R.drawable.restaurant_image,"Shops"));
 
-        adapter = new CategoriesAdapter(categories);
-        categoriesRecycler.setAdapter(adapter);
+        cadapter = new CategoriesAdapter(categories);
+        categoriesRecycler.setAdapter(cadapter);
 
     }
 
@@ -121,14 +125,40 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
         //for the horizontal sliding
         featuredRecycler.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
 
-        ArrayList<FeaturedHelperClass> featuredLocations = new ArrayList<>();
+        final ArrayList<FeaturedHelperClass> featuredLocations = new ArrayList<>();
 
         featuredLocations.add(new FeaturedHelperClass(R.drawable.wonderla,4,"Wonderla","Wonderla is one of the largest amusement parks in the entire country with more than 60 exhilarating rides." ));
         featuredLocations.add(new FeaturedHelperClass(R.drawable.bangalore_palace,4,"Bangalore Palace","Bangalore Palace is a true example of sheer architectural beauty." ));
-        featuredLocations.add(new FeaturedHelperClass(R.drawable.brigade_road,3,"Brigade Road ","Brigade road is considered a shopping paradise for the city dwellers." ));
+        featuredLocations.add(new FeaturedHelperClass(R.drawable.lalbagh,3,"Lalbagh Garden ","Lalbagh is one of the oldest botanical garden in south india." ));
 
         adapter = new FeaturedAdapter(featuredLocations);
         featuredRecycler.setAdapter(adapter);
+
+        adapter.setOnItemClickListener(new FeaturedAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                //Toast.makeText(UserDashboard.this, position, Toast.LENGTH_SHORT).show();
+                if(position == 0)
+                {
+                    //Toast.makeText(UserDashboard.this, "wonderla", Toast.LENGTH_SHORT).show();
+                    Intent wonderla = new Intent(UserDashboard.this, Wonderla_feat.class);
+                    startActivity(wonderla);
+                }
+                if(position == 1)
+                {
+                    //Toast.makeText(UserDashboard.this, "wonderla", Toast.LENGTH_SHORT).show();
+                    Intent bangalorePalace = new Intent(UserDashboard.this, BangalorePalace_feat.class);
+                    startActivity(bangalorePalace);
+                }
+                if(position == 2)
+                {
+                    //Toast.makeText(UserDashboard.this, "wonderla", Toast.LENGTH_SHORT).show();
+                    Intent lalbagh = new Intent(UserDashboard.this, Lalbagh_feat.class);
+                    startActivity(lalbagh);
+                }
+
+            }
+        });
 
     }
 
@@ -148,16 +178,16 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
                 break;
             case R.id.nav_profile:
                 Intent intent = getIntent();
-                String user_username = intent.getStringExtra("username");
-                String user_name = intent.getStringExtra("name");
-                String user_email = intent.getStringExtra("email");
-                String user_phoneNo = intent.getStringExtra("phoneNo");
+//                String user_username = intent.getStringExtra("username");
+//                String user_name = intent.getStringExtra("name");
+//                String user_email = intent.getStringExtra("email");
+//                String user_phoneNo = intent.getStringExtra("phoneNo");
                 //String user_password = intent.getStringExtra("password");
                 Intent intent2 = new Intent(UserDashboard.this, UserProfile.class);
-                intent2.putExtra("name", user_username);
-                intent2.putExtra("username", user_name);
-                intent2.putExtra("email", user_email);
-                intent2.putExtra("phoneNo", user_phoneNo);
+//                intent2.putExtra("name", user_username);
+//                intent2.putExtra("username", user_name);
+//                intent2.putExtra("email", user_email);
+//                intent2.putExtra("phoneNo", user_phoneNo);
                 startActivity(intent2);
                 break;
             case R.id.nav_logout:

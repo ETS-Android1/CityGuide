@@ -41,6 +41,11 @@ public class RestaurantListView extends AppCompatActivity {
 
     }
 
+    public void onBackPressed()
+    {
+        Intent intent = new Intent(RestaurantListView.this, UserDashboard.class);
+        startActivity(intent);
+    }
     private void loadView() {
 
         FirebaseRecyclerAdapter<restaurant, RestaurantViewHolder> adapter = new FirebaseRecyclerAdapter<restaurant, RestaurantViewHolder>(

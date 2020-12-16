@@ -17,6 +17,15 @@ import java.util.ArrayList;
 public class FeaturedAdapter extends RecyclerView.Adapter<FeaturedAdapter.FeaturedViewHolder> {
 
     ArrayList<FeaturedHelperClass> featuredLocations;
+    private OnItemClickListener mlistener;
+
+    public interface  OnItemClickListener {
+        void onItemClick(int position);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener){
+        mlistener = listener;
+    }
 
     public FeaturedAdapter(ArrayList<FeaturedHelperClass> featuredLocations) {
         this.featuredLocations = featuredLocations;
@@ -27,7 +36,7 @@ public class FeaturedAdapter extends RecyclerView.Adapter<FeaturedAdapter.Featur
     public FeaturedViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.featured_card_design,parent,false);
         //we have to pass the view to featured viewHolder
-        FeaturedViewHolder featuredViewHolder = new FeaturedViewHolder(view);
+        FeaturedViewHolder featuredViewHolder = new FeaturedViewHolder(view, mlistener);
 
 
         return featuredViewHolder;
@@ -57,13 +66,25 @@ public class FeaturedAdapter extends RecyclerView.Adapter<FeaturedAdapter.Featur
         ImageView image;
         TextView title,desc;
         RatingBar rating;
-        public FeaturedViewHolder(@NonNull View itemView) {
+        public FeaturedViewHolder(@NonNull View itemView, final OnItemClickListener listener) {
             super(itemView);
 
             image = itemView.findViewById(R.id.featured_image);
             title = itemView.findViewById(R.id.featured_title);
             desc = itemView.findViewById(R.id.featured_description);
             rating = itemView.findViewById(R.id.featured_rating);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (listener != null) {
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION){
+                            listener.onItemClick(position);
+                        }
+                    }
+                }
+            });
 
         }
     }

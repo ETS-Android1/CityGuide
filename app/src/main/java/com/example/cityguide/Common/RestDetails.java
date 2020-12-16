@@ -27,6 +27,7 @@ public class RestDetails extends AppCompatActivity {
     TextView restName;
     ImageView restImage;
     TextView address;
+    TextView addressDetails;
     TextView description;
     TextView ratings;
     TextView setCount;
@@ -44,6 +45,7 @@ public class RestDetails extends AppCompatActivity {
         restName = (TextView) findViewById(R.id.restName);
         restImage = (ImageView) findViewById(R.id.imageView);
         address = (TextView) findViewById(R.id.address);
+        addressDetails = (TextView) findViewById(R.id.address_details);
         description = (TextView) findViewById(R.id.description);
         ratings = (TextView) findViewById(R.id.rating);
         setCount = (TextView) findViewById(R.id.setCount);
@@ -66,17 +68,14 @@ public class RestDetails extends AppCompatActivity {
             getDetailRest(restId);
         }
 
-
-
-
-
-
-
-
-
-
-
     }
+
+    public void onBackPressed()
+    {
+        Intent intent = new Intent(RestDetails.this,RestaurantListView.class);
+        startActivity(intent);
+    }
+
     private void getDetailRest(final String restId)
     {
         rest.child(restId).addValueEventListener(new ValueEventListener() {
@@ -85,8 +84,8 @@ public class RestDetails extends AppCompatActivity {
                 restaurant restaurant = dataSnapshot.getValue(com.example.cityguide.HelperClasses.Home.restaurant.class);
                 Picasso.get().load(restaurant.getImage()).into(restImage);
                 restName.setText(restaurant.getRestName());
-
-                address.setText(restaurant.getAddress());
+                addressDetails.setText(restaurant.getAddress());
+                //address.setText(restaurant.getAddress());
                 description.setText(restaurant.getDescription());
                 ratings.setText(restaurant.getStarsTillNow());
                 setCount.setText(restaurant.getCustomercount());

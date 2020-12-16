@@ -14,6 +14,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.cityguide.Common.LoginSinup.SignUp;
 import com.example.cityguide.LocationOwner.OwnerLogin;
+import com.example.cityguide.Model.Users;
+import com.example.cityguide.Prevalent.Prevalent;
 import com.example.cityguide.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -26,6 +28,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import io.paperdb.Paper;
+
 public class LoginActivity extends AppCompatActivity {
     
     private EditText email;
@@ -37,6 +41,9 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Paper.init(this);
+
         setContentView(R.layout.activity_login);
         email = (EditText) findViewById(R.id.inputEmail);
         password = (EditText) findViewById(R.id.inputPassword);
@@ -137,16 +144,23 @@ public class LoginActivity extends AppCompatActivity {
                     checkUser.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            Users userData = dataSnapshot.child("users").child(modifiedEmail).getValue(Users.class);
+                            //Prevalent.currentOnlineUser = userData;
+                            Paper.book().write(Prevalent.UserEmailKey, modifiedEmail);
 
                             String nameFromDB = dataSnapshot.child(modifiedEmail).child("name").getValue(String.class);
                             String usernameFromDB = dataSnapshot.child(modifiedEmail).child("username").getValue(String.class);
                             String phoneNoFromDB = dataSnapshot.child(modifiedEmail).child("phoneNo").getValue(String.class);
                             String emailFromDB = dataSnapshot.child(modifiedEmail).child("email").getValue(String.class);
                             Intent intent = new Intent(getApplicationContext(), UserDashboard.class);
-                            intent.putExtra("name", nameFromDB);
-                            intent.putExtra("username", usernameFromDB);
-                            intent.putExtra("email", emailFromDB);
-                            intent.putExtra("phoneNo", phoneNoFromDB);
+                            Paper.book().write(Prevalent.UserNameKey, nameFromDB);
+                            Paper.book().write(Prevalent.UserUsernameKey, usernameFromDB);
+                            Paper.book().write(Prevalent.UserPhoneKey, phoneNoFromDB);
+
+//                            intent.putExtra("name", nameFromDB);
+//                            intent.putExtra("username", usernameFromDB);
+//                            intent.putExtra("email", emailFromDB);
+//                            intent.putExtra("phoneNo", phoneNoFromDB);
 //                            Toast.makeText(LoginActivity.this,nameFromDB,Toast.LENGTH_SHORT).show();
 //                            Toast.makeText(LoginActivity.this,phoneNoFromDB,Toast.LENGTH_SHORT).show();
 

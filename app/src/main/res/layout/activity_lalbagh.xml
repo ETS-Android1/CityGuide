@@ -180,6 +180,7 @@
                                 android:layout_height="wrap_content"
                                 android:text=" Lalbagh Road, Wilson Garden, Near BMTC Office, Bengaluru, Karnataka 560004"
                                 android:textColor="#333"
+                                android:paddingBottom="10dp"
                                 android:textSize="16dp" />
                         </LinearLayout>
 

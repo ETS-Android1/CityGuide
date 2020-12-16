@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".addReview"></activity>
+        <activity android:name=".Lalbagh_feat"></activity>
+        <activity android:name=".BangalorePalace_feat" />
+        <activity android:name=".Common.Wonderla_feat" />
+        <activity android:name=".addReview" />
         <activity android:name=".Common.ForgotPassword" />
         <activity android:name=".Common.RestDetails" />
         <activity android:name=".Common.SplashScreen$RestDetails" />

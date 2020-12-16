@@ -18,6 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Restaurant"
+            android:fontFamily="@font/baloo"
             android:textSize="20sp" />
 
         <ImageView
