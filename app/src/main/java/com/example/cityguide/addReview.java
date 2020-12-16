@@ -114,6 +114,7 @@ public class addReview extends AppCompatActivity {
                                 public void onSuccess(Object o) {
                                     Toast.makeText(getApplicationContext(), "Your Rating Successfully Noted", Toast.LENGTH_SHORT).show();
                                     Intent restDetail = new Intent(addReview.this, RestDetails.class);
+                                    restDetail.putExtra("RestId",restId);
                                     startActivity(restDetail);
                                     finish();
                                 }
