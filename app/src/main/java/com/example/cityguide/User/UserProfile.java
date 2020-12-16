@@ -6,8 +6,11 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.cityguide.Prevalent.Prevalent;
 import com.example.cityguide.R;
 import com.google.android.material.textfield.TextInputLayout;
+
+import io.paperdb.Paper;
 
 public class UserProfile extends AppCompatActivity {
 
@@ -37,18 +40,17 @@ public class UserProfile extends AppCompatActivity {
     private void showAllUserData() {
 
         Intent intent = getIntent();
-        String user_username = intent.getStringExtra("username");
-        String user_name = intent.getStringExtra("name");
-        String user_email = intent.getStringExtra("email");
-        String user_phoneNo = intent.getStringExtra("phoneNo");
-        //String user_password = intent.getStringExtra("password");
-        //Toast.makeText(UserProfile.this,user_phoneNo,Toast.LENGTH_SHORT).show();
-        fullNameLabel.setText(user_username);
-        usernameLabel.setText(user_name);
-        username.setText(user_name);
-        fullName.setText(user_username);
-        email.setText(user_email);
-        phoneNo.setText(user_phoneNo);
+        String UserEmailkey = Paper.book().read(Prevalent.UserEmailKey);
+        String UserNamekey = Paper.book().read(Prevalent.UserNameKey);
+        String UserPhonekey = Paper.book().read(Prevalent.UserPhoneKey);
+        String UserUsernamekey = Paper.book().read(Prevalent.UserUsernameKey);
+
+        fullNameLabel.setText(UserNamekey);
+        usernameLabel.setText(UserUsernamekey);
+        username.setText(UserUsernamekey);
+        fullName.setText(UserNamekey);
+        email.setText(UserEmailkey);
+        phoneNo.setText(UserPhonekey);
         //password.getEditText().setText(user_password);
 
 

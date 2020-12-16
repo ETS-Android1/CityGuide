@@ -32,7 +32,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="10dp"
                 android:layout_toRightOf="@id/profile_image"
-                android:fontFamily="@font/bungee"
+                android:fontFamily="@font/baloo"
                 android:includeFontPadding="false"
                 android:text="P Sai Deekshith"
                 android:textAllCaps="true"
@@ -47,7 +47,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="10dp"
                 android:layout_toRightOf="@id/profile_image"
-                android:fontFamily="@font/baloo"
+
                 android:includeFontPadding="false"
                 android:text="sai deekshith"
                 android:textSize="14sp" />
@@ -57,97 +57,90 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_marginTop="50dp"
+            android:orientation="vertical"
             android:padding="20dp">
 
             <TextView
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
+
                 android:hint="Full Name">
 
 
-
-
-
             </TextView>
+
             <TextView
                 android:id="@+id/full_name_profile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/bungee"
-                android:textSize="25sp"/>
-<!--            from here-->
+                android:layout_marginBottom="15dp"
+                android:fontFamily="@font/baloo"
+
+                android:textSize="25sp" />
+            <!--            from here-->
             <TextView
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
+
                 android:hint="Username">
 
 
-
-
-
             </TextView>
+
             <TextView
                 android:id="@+id/user_nane_profile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/bungee"
-                android:textSize="25sp"/>
+                android:layout_marginBottom="15dp"
+                android:fontFamily="@font/baloo"
+                android:textSize="25sp" />
 
 
-
-<!--from here-->
+            <!--from here-->
 
             <TextView
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
+
                 android:hint="Email">
 
 
-
-
-
             </TextView>
+
             <TextView
                 android:id="@+id/email_profile"
                 android:layout_width="wrap_content"
-                android:fontFamily="@font/bungee"
-                android:textSize="25sp"
-                android:layout_height="wrap_content"/>
+                android:fontFamily="@font/baloo"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:textSize="25sp" />
 
-<!--from here-->
+            <!--from here-->
             <TextView
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
+
                 android:hint="Phone Number">
 
 
-
-
-
             </TextView>
+
             <TextView
                 android:id="@+id/phone_no_profile"
                 android:layout_width="wrap_content"
-                android:text="sai"
-                android:fontFamily="@font/bungee"
-                android:textSize="25sp"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/baloo"
 
-
+                android:layout_marginBottom="15dp"
+                android:textSize="25sp" />
 
 
         </LinearLayout>
-
 
 
     </LinearLayout>
