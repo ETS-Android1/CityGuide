@@ -195,6 +195,8 @@ public class OwnerAddNewActivity extends AppCompatActivity {
             map.put("description", Description);
             map.put("image", downloadImageUrl);
             map.put("restName", Pname);
+            map.put("starsTillNow","0");
+            map.put("Customercount","0");
             rest.child(productRandomKey).updateChildren(map).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {

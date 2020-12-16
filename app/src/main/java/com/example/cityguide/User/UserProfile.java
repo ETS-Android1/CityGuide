@@ -11,7 +11,7 @@ import com.google.android.material.textfield.TextInputLayout;
 
 public class UserProfile extends AppCompatActivity {
 
-    TextInputLayout fullName,email,phoneNo,username;
+    TextView fullName,email,phoneNo,username;
     TextView fullNameLabel,usernameLabel;
 
     @Override
@@ -45,10 +45,10 @@ public class UserProfile extends AppCompatActivity {
         //Toast.makeText(UserProfile.this,user_phoneNo,Toast.LENGTH_SHORT).show();
         fullNameLabel.setText(user_username);
         usernameLabel.setText(user_name);
-        username.getEditText().setText(user_name);
-        fullName.getEditText().setText(user_name);
-        email.getEditText().setText(user_email);
-        phoneNo.getEditText().setText(user_phoneNo);
+        username.setText(user_name);
+        fullName.setText(user_username);
+        email.setText(user_email);
+        phoneNo.setText(user_phoneNo);
         //password.getEditText().setText(user_password);
 
 

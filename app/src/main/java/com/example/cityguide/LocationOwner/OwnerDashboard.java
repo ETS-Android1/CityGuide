@@ -59,4 +59,9 @@ public class OwnerDashboard extends AppCompatActivity {
             }
         });
     }
+    // TODO
+    // Update all the categories
+    // Update update user profile
+    // Owner profile
+    //
 }
