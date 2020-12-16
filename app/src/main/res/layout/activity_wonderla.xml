@@ -102,8 +102,8 @@
                                 android:id="@+id/description"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Wonderla Waterpark in Bangalore is beyond doubt, the best waterpark in the city. It is a haven for those seeking an escape from the mundane boredom of everyday life and offers a series of rides that will make your adrenaline go berserk.
-"
+                                android:layout_marginRight="25dp"
+                                android:text="Wonderla Waterpark in Bangalore is beyond doubt, the best waterpark in the city. It is a haven for those seeking an escape from the mundane boredom of everyday life and offers a series of rides that will make your adrenaline go berserk."
                                 android:textColor="#333"
                                 android:textSize="16dp" />
                         </LinearLayout>
@@ -177,7 +177,8 @@
 
                             <TextView
                                 android:id="@+id/wonderla_address"
-                                android:layout_width="379dp"
+                                android:layout_width="wrap_content"
+                                android:layout_marginRight="25dp"
                                 android:layout_height="wrap_content"
                                 android:text="28th Km, Mysore Rd, Bengaluru, Karnataka 562109"
                                 android:textColor="#333"

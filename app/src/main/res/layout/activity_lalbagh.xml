@@ -104,6 +104,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="Lalbagh is one of the oldest botanical gardens in India and is also a major tourist attraction in South India. Located in South Bengaluru, the Lalbagh Botanical Garden is the one of the largest botanical gardens in India, but also the first of its kind, with glasshouses and ornamental flowers growing throughout the property."
                                 android:textColor="#333"
+                                android:layout_marginRight="25dp"
                                 android:textSize="16dp" />
                         </LinearLayout>
 
@@ -176,10 +177,11 @@
 
                             <TextView
                                 android:id="@+id/wonderla_address"
-                                android:layout_width="379dp"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text=" Lalbagh Road, Wilson Garden, Near BMTC Office, Bengaluru, Karnataka 560004"
                                 android:textColor="#333"
+                                android:layout_marginRight="25dp"
                                 android:paddingBottom="10dp"
                                 android:textSize="16dp" />
                         </LinearLayout>

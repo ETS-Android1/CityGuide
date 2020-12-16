@@ -134,7 +134,7 @@ public class LoginActivity extends AppCompatActivity {
                 if(task.isSuccessful()){
 
                     final String userEnteredEmail = email.getText().toString();
-                    String userEnteredPassword = password.getText().toString();
+                    final String userEnteredPassword = password.getText().toString();
                     final String modifiedEmail = removeSpecialCharacters(userEnteredEmail);
 
                     DatabaseReference reference = FirebaseDatabase.getInstance().getReference("users");
@@ -146,7 +146,8 @@ public class LoginActivity extends AppCompatActivity {
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             Users userData = dataSnapshot.child("users").child(modifiedEmail).getValue(Users.class);
                             //Prevalent.currentOnlineUser = userData;
-                            Paper.book().write(Prevalent.UserEmailKey, modifiedEmail);
+                            String userEnteredEmail = email.getText().toString();
+                            Paper.book().write(Prevalent.UserEmailKey, userEnteredEmail);
 
                             String nameFromDB = dataSnapshot.child(modifiedEmail).child("name").getValue(String.class);
                             String usernameFromDB = dataSnapshot.child(modifiedEmail).child("username").getValue(String.class);
