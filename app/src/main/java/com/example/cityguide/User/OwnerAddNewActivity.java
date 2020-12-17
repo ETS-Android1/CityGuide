@@ -43,6 +43,9 @@ public class OwnerAddNewActivity extends AppCompatActivity {
     private StorageReference PlaceImagesRef;
     private DatabaseReference PlaceRef;
     private DatabaseReference rest;
+    private DatabaseReference the;
+    private DatabaseReference hot;
+    private DatabaseReference shop;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +55,9 @@ public class OwnerAddNewActivity extends AppCompatActivity {
         PlaceImagesRef = FirebaseStorage.getInstance().getReference().child("Place Images");
         PlaceRef = FirebaseDatabase.getInstance().getReference().child("Places");
         rest = FirebaseDatabase.getInstance().getReference().child("Restaurant");
+        the =  FirebaseDatabase.getInstance().getReference().child("Theaters");
+        hot =  FirebaseDatabase.getInstance().getReference().child("Hotels");
+        shop =  FirebaseDatabase.getInstance().getReference().child("Shops");
         //Toast.makeText(this, CategoryName, Toast.LENGTH_SHORT).show();
         AddNewPlaceButton = (Button) findViewById(R.id.add_new_place);
         InputPlaceImage = (ImageView) findViewById(R.id.select_place_image);
@@ -198,6 +204,57 @@ public class OwnerAddNewActivity extends AppCompatActivity {
             map.put("starsTillNow","0");
             map.put("Customercount","0");
             rest.child(productRandomKey).updateChildren(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if (task.isSuccessful()) {
+
+                    }
+                }
+            });
+        }
+        else if(CategoryName.equals("hotels")) {
+            HashMap<String, Object> map = new HashMap<>();
+            map.put("address", Address);
+            map.put("description", Description);
+            map.put("image", downloadImageUrl);
+            map.put("restName", Pname);
+            map.put("starsTillNow","0");
+            map.put("Customercount","0");
+            hot.child(productRandomKey).updateChildren(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if (task.isSuccessful()) {
+
+                    }
+                }
+            });
+        }
+        else if(CategoryName.equals("theaters")) {
+            HashMap<String, Object> map = new HashMap<>();
+            map.put("address", Address);
+            map.put("description", Description);
+            map.put("image", downloadImageUrl);
+            map.put("restName", Pname);
+            map.put("starsTillNow","0");
+            map.put("Customercount","0");
+            the.child(productRandomKey).updateChildren(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if (task.isSuccessful()) {
+
+                    }
+                }
+            });
+        }
+        else if(CategoryName.equals("shops")) {
+            HashMap<String, Object> map = new HashMap<>();
+            map.put("address", Address);
+            map.put("description", Description);
+            map.put("image", downloadImageUrl);
+            map.put("restName", Pname);
+            map.put("starsTillNow","0");
+            map.put("Customercount","0");
+            shop.child(productRandomKey).updateChildren(map).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
                     if (task.isSuccessful()) {

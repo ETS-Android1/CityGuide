@@ -144,7 +144,6 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
 
     public void callOwnerScreen(View view)
     {
-
         startActivity(new Intent(getApplicationContext(), RestaurantListView.class));
     }
     @Override

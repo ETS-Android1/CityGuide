@@ -35,7 +35,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText email;
     private EditText password;
     private Button login;
-    private TextView callSignUp,forgotPassword, callOwner;
+    private TextView callSignUp, forgotPassword, callOwner;
     private FirebaseAuth auth;
 
     @Override

@@ -17,7 +17,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.cityguide.BangalorePalace_feat;
+import com.example.cityguide.Common.LoginSinup.HotelsListView;
 import com.example.cityguide.Common.LoginSinup.OwnerStartupPage;
+import com.example.cityguide.Common.LoginSinup.ShopsListView;
+import com.example.cityguide.Common.LoginSinup.TheatersListView;
 import com.example.cityguide.HelperClasses.Home.CategoriesAdapter;
 import com.example.cityguide.HelperClasses.Home.CategoriesHelperClass;
 import com.example.cityguide.HelperClasses.Home.FeaturedAdapter;
@@ -203,6 +206,24 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
     {
 
         startActivity(new Intent(UserDashboard.this,RestaurantListView.class));
+
+    }
+    public void callHotelListView(View view)
+    {
+
+        startActivity(new Intent(UserDashboard.this, HotelsListView.class));
+
+    }
+    public void callShopsListView(View view)
+    {
+
+        startActivity(new Intent(UserDashboard.this, ShopsListView.class));
+
+    }
+    public void callTheatersListView(View view)
+    {
+
+        startActivity(new Intent(UserDashboard.this, TheatersListView.class));
 
     }
 }
