@@ -179,6 +179,18 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
                 Intent intent1 = new Intent(UserDashboard.this, RestaurantListView.class);
                 startActivity(intent1);
                 break;
+            case R.id.nav_hotels:
+                Intent hotelsButton = new Intent(UserDashboard.this, HotelsListView.class);
+                startActivity(hotelsButton);
+                break;
+            case R.id.nav_theaters:
+                Intent intent3 = new Intent(UserDashboard.this, TheatersListView.class);
+                startActivity(intent3);
+                break;
+            case R.id.nav_shops:
+                Intent intent4 = new Intent(UserDashboard.this, ShopsListView.class);
+                startActivity(intent4);
+                break;
             case R.id.nav_profile:
                 Intent intent = getIntent();
 //                String user_username = intent.getStringExtra("username");

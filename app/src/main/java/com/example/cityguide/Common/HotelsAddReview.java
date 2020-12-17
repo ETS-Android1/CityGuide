@@ -42,7 +42,7 @@ public class HotelsAddReview extends AppCompatActivity {
         setContentView(R.layout.activity_hotels_add_review);
         rateCount = findViewById(R.id.ratingCount1);
         ratingBar = findViewById(R.id.ratingBar1);
-        review = findViewById(R.id.writeReview1);
+        //review = findViewById(R.id.writeReview1);
         submit = findViewById(R.id.submitButton1);
         showRating = findViewById(R.id.showRating1);
         database = FirebaseDatabase.getInstance();

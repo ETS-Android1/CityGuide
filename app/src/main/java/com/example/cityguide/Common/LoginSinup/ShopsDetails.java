@@ -11,6 +11,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.cityguide.Common.HotelsAddReview;
+import com.example.cityguide.Common.RestDetails;
+import com.example.cityguide.Common.RestaurantListView;
 import com.example.cityguide.HelperClasses.Home.restaurant;
 import com.example.cityguide.R;
 import com.example.cityguide.addReview;
@@ -68,16 +70,14 @@ public class ShopsDetails extends AppCompatActivity {
         }
 
 
-
-
-
-
-
-
-
-
-
     }
+
+    public void onBackPressed()
+    {
+        Intent intent = new Intent(ShopsDetails.this, ShopsListView.class);
+        startActivity(intent);
+    }
+
     private void getDetailRest(final String restId)
     {
         rest.child(restId).addValueEventListener(new ValueEventListener() {

@@ -45,7 +45,7 @@ public class TheatersAddReview extends AppCompatActivity {
         setContentView(R.layout.activity_theaters_add_review);
         rateCount = findViewById(R.id.ratingCount3);
         ratingBar = findViewById(R.id.ratingBar3);
-        review = findViewById(R.id.writeReview3);
+        //review = findViewById(R.id.writeReview3);
         submit = findViewById(R.id.submitButton3);
         showRating = findViewById(R.id.showRating3);
         database = FirebaseDatabase.getInstance();

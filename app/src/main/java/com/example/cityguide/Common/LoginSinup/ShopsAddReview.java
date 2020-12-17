@@ -44,7 +44,7 @@ public class ShopsAddReview extends AppCompatActivity {
         setContentView(R.layout.activity_shops_add_review);
         rateCount = findViewById(R.id.ratingCount2);
         ratingBar = findViewById(R.id.ratingBar2);
-        review = findViewById(R.id.writeReview2);
+        //review = findViewById(R.id.writeReview2);
         submit = findViewById(R.id.submitButton2);
         showRating = findViewById(R.id.showRating2);
         database = FirebaseDatabase.getInstance();

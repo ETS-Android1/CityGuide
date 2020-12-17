@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.cityguide.Common.HotelsDetails;
 import com.example.cityguide.Common.RestDetails;
+import com.example.cityguide.Common.RestaurantListView;
+import com.example.cityguide.Common.UserDashboard;
 import com.example.cityguide.HelperClasses.Home.ItemClickListener;
 import com.example.cityguide.HelperClasses.Home.RestaurantViewHolder;
 import com.example.cityguide.HelperClasses.Home.restaurant;
@@ -42,6 +44,12 @@ public class ShopsListView extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         loadView();
 
+    }
+
+    public void onBackPressed()
+    {
+        Intent intent = new Intent(ShopsListView.this, UserDashboard.class);
+        startActivity(intent);
     }
 
     private void loadView() {

@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.cityguide.Common.LoginSinup.HotelsListView;
 import com.example.cityguide.HelperClasses.Home.restaurant;
 import com.example.cityguide.R;
 import com.example.cityguide.addReview;
@@ -65,17 +66,14 @@ public class HotelsDetails extends AppCompatActivity {
             getDetailRest(restId);
         }
 
-
-
-
-
-
-
-
-
-
-
     }
+
+    public void onBackPressed()
+    {
+        Intent intent = new Intent(HotelsDetails.this, HotelsListView.class);
+        startActivity(intent);
+    }
+
     private void getDetailRest(final String restId)
     {
         rest.child(restId).addValueEventListener(new ValueEventListener() {

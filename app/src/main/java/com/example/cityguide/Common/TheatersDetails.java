@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.cityguide.Common.LoginSinup.TheatersAddReview;
+import com.example.cityguide.Common.LoginSinup.TheatersListView;
 import com.example.cityguide.HelperClasses.Home.restaurant;
 import com.example.cityguide.R;
 import com.example.cityguide.addReview;
@@ -66,17 +67,14 @@ public class TheatersDetails extends AppCompatActivity {
             getDetailRest(restId);
         }
 
-
-
-
-
-
-
-
-
-
-
     }
+
+    public void onBackPressed()
+    {
+        Intent intent = new Intent(TheatersDetails.this, TheatersListView.class);
+        startActivity(intent);
+    }
+
     private void getDetailRest(final String restId)
     {
         rest.child(restId).addValueEventListener(new ValueEventListener() {

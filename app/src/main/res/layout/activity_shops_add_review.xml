@@ -11,7 +11,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Rating System"
+        android:text="Rate Tour Experience"
+        android:layout_marginTop="20dp"
         android:textAppearance="?android:textAppearanceLarge"
         android:layout_gravity="center"
 
@@ -28,17 +29,12 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
         android:textAppearance="?android:textAppearanceMedium"
         android:id="@+id/ratingCount2"
 
         />
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="write Review"
-        android:id="@+id/writeReview2"
-
-        android:textAppearance="?android:textAppearanceMedium"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -48,7 +44,7 @@
 
     <Button
         android:id="@+id/submitButton2"
-        android:layout_marginTop="100dp"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

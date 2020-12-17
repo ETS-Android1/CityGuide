@@ -38,7 +38,7 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Ca
 
         CategoriesHelperClass categoriesHelperClass = categories.get(position);
 
-        holder.image.setImageResource(categoriesHelperClass.getImage());
+        //holder.image.setImageResource(categoriesHelperClass.getImage());
         holder.title.setText(categoriesHelperClass.getTitle());
 
     }
@@ -57,7 +57,7 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Ca
         public CategoriesViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            image = itemView.findViewById(R.id.categories_image);
+            //image = itemView.findViewById(R.id.categories_image);
             title = itemView.findViewById(R.id.categories_title);
 
         }
