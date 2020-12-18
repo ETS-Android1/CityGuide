@@ -13,6 +13,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.cityguide.Common.LoginSinup.OwnerStartupPage;
 import com.example.cityguide.Common.LoginSinup.SignUp;
 import com.example.cityguide.LocationOwner.OwnerLogin;
 import com.example.cityguide.Model.Users;
@@ -83,7 +84,7 @@ public class LoginActivity extends AppCompatActivity {
         callOwner.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, OwnerLogin.class);
+                Intent intent = new Intent(LoginActivity.this, OwnerStartupPage.class);
                 startActivity(intent);
             }
         });

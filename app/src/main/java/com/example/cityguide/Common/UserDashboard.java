@@ -165,10 +165,10 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
 
     }
 
-    public void callOwnerScreen(View view)
-    {
-        startActivity(new Intent(getApplicationContext(), OwnerStartupPage.class));
-    }
+//    public void callOwnerScreen(View view)
+//    {
+//        startActivity(new Intent(getApplicationContext(), OwnerStartupPage.class));
+//    }
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         //we are going to handle all the onclick items in navigation bar
