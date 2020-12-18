@@ -1,5 +1,6 @@
 package com.example.cityguide.User;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -46,6 +47,7 @@ public class OwnerAddNewActivity extends AppCompatActivity {
     private DatabaseReference the;
     private DatabaseReference hot;
     private DatabaseReference shop;
+    private ProgressDialog loadingBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +60,7 @@ public class OwnerAddNewActivity extends AppCompatActivity {
         the =  FirebaseDatabase.getInstance().getReference().child("Theaters");
         hot =  FirebaseDatabase.getInstance().getReference().child("Hotels");
         shop =  FirebaseDatabase.getInstance().getReference().child("Shops");
+        loadingBar = new ProgressDialog(this);
         //Toast.makeText(this, CategoryName, Toast.LENGTH_SHORT).show();
         AddNewPlaceButton = (Button) findViewById(R.id.add_new_place);
         InputPlaceImage = (ImageView) findViewById(R.id.select_place_image);
@@ -124,12 +127,18 @@ public class OwnerAddNewActivity extends AppCompatActivity {
         }
         else
         {
+
             StorePlaceInformation();
         }
     }
 
     private void StorePlaceInformation()
     {
+        loadingBar.setTitle("Adding New Place");
+        loadingBar.setMessage("Please Wait");
+        loadingBar.setCanceledOnTouchOutside(false);
+        loadingBar.show();
+
         Calendar calendar = Calendar.getInstance();
 
         SimpleDateFormat currentDate = new SimpleDateFormat("MMM dd, yyyy");
@@ -149,18 +158,21 @@ public class OwnerAddNewActivity extends AppCompatActivity {
             public void onFailure(@NonNull Exception e) {
                 String  message = e.toString();
                 Toast.makeText(OwnerAddNewActivity.this, "Error: " + message, Toast.LENGTH_SHORT).show();
+                loadingBar.dismiss();
             }
         }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                Toast.makeText(OwnerAddNewActivity.this, "Place Image Uploaded Successfully", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(OwnerAddNewActivity.this, "Place Image Uploaded Successfully", Toast.LENGTH_SHORT).show();
 
                 Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
                     @Override
                     public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
                         if (!task.isSuccessful())
                         {
+                            loadingBar.dismiss();
                             throw task.getException();
+
                         }
 
                         downloadImageUrl = filePath.getDownloadUrl().toString();
@@ -173,7 +185,7 @@ public class OwnerAddNewActivity extends AppCompatActivity {
                         {
                             downloadImageUrl = task.getResult().toString();
 
-                            Toast.makeText(OwnerAddNewActivity.this, "got the  Place Image saved to database successfully!", Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(OwnerAddNewActivity.this, "got the  Place Image saved to database successfully!", Toast.LENGTH_SHORT).show();
 
                             SavePlaceInfoToDatabase();
                         }
@@ -272,14 +284,19 @@ public class OwnerAddNewActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful())
                         {
+
                             Intent intent = new Intent(OwnerAddNewActivity.this, OwnerDashboard.class);
                             startActivity(intent);
+                            loadingBar.dismiss();
                             Toast.makeText(OwnerAddNewActivity.this, "Place is added successfully!", Toast.LENGTH_SHORT).show();
+
                         }
                         else
                         {
+                            loadingBar.dismiss();
                             String message = task.getException().toString();
                             Toast.makeText(OwnerAddNewActivity.this, "Error : " + message, Toast.LENGTH_SHORT).show();
+
                         }
                     }
                 });

@@ -1,5 +1,6 @@
 package com.example.cityguide.Common;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
@@ -37,6 +38,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button login;
     private TextView callSignUp, forgotPassword, callOwner;
     private FirebaseAuth auth;
+    private ProgressDialog loadingBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +47,7 @@ public class LoginActivity extends AppCompatActivity {
         Paper.init(this);
 
         setContentView(R.layout.activity_login);
+        loadingBar = new ProgressDialog(this);
         email = (EditText) findViewById(R.id.inputEmail);
         password = (EditText) findViewById(R.id.inputPassword);
         login = findViewById(R.id.loginButton);
@@ -128,6 +131,11 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
+        loadingBar.setTitle("Login");
+        loadingBar.setMessage("Please Wait");
+        loadingBar.setCanceledOnTouchOutside(false);
+        loadingBar.show();
+
         auth.signInWithEmailAndPassword(e,p).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -164,7 +172,8 @@ public class LoginActivity extends AppCompatActivity {
 //                            intent.putExtra("phoneNo", phoneNoFromDB);
 //                            Toast.makeText(LoginActivity.this,nameFromDB,Toast.LENGTH_SHORT).show();
 //                            Toast.makeText(LoginActivity.this,phoneNoFromDB,Toast.LENGTH_SHORT).show();
-
+                            Toast.makeText(LoginActivity.this,"Login Successful",Toast.LENGTH_SHORT).show();
+                            loadingBar.dismiss();
                             startActivity(intent);
 
                         }
@@ -180,6 +189,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 }else{
                     Toast.makeText(LoginActivity.this,"Failed to login! Please check your credentials",Toast.LENGTH_LONG).show();
+                    loadingBar.dismiss();
                 }
             }
         });
