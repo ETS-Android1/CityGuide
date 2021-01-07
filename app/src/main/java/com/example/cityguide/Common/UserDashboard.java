@@ -37,8 +37,9 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
 
     RecyclerView featuredRecycler;
     RecyclerView categoriesRecycler;
-    RecyclerView.Adapter cadapter;
+    CategoriesAdapter cadapter;
     FeaturedAdapter adapter;
+    //CategoriesAdapter mAdapter;
     ImageView menuIcon;
 
 
@@ -119,6 +120,34 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
 
         cadapter = new CategoriesAdapter(categories);
         categoriesRecycler.setAdapter(cadapter);
+
+        cadapter.setOnItemClickListener(new CategoriesAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                if(position == 0)
+                {
+                    //Toast.makeText(UserDashboard.this, "wonderla", Toast.LENGTH_SHORT).show();
+                    Intent restaurants = new Intent(UserDashboard.this, RestaurantListView.class);
+                    startActivity(restaurants);
+                }
+                if(position == 1)
+                {
+                    //Toast.makeText(UserDashboard.this, "wonderla", Toast.LENGTH_SHORT).show();
+                    Intent hotels = new Intent(UserDashboard.this, HotelsListView.class);
+                    startActivity(hotels);
+                }if(position == 2)
+                {
+                    //Toast.makeText(UserDashboard.this, "wonderla", Toast.LENGTH_SHORT).show();
+                    Intent theaters = new Intent(UserDashboard.this, TheatersListView.class);
+                    startActivity(theaters);
+                }if(position == 3)
+                {
+                    //Toast.makeText(UserDashboard.this, "wonderla", Toast.LENGTH_SHORT).show();
+                    Intent shops = new Intent(UserDashboard.this, ShopsListView.class);
+                    startActivity(shops);
+                }
+            }
+        });
 
     }
 
