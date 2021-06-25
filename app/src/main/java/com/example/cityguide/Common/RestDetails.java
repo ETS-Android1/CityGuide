@@ -4,11 +4,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.cityguide.HelperClasses.Home.restaurant;
 import com.example.cityguide.R;
@@ -32,6 +34,8 @@ public class RestDetails extends AppCompatActivity {
     TextView ratings;
     TextView setCount;
     Button addReview;
+    Button nav_btn;
+
 
     String restId ="";
     FirebaseDatabase database;
@@ -50,6 +54,8 @@ public class RestDetails extends AppCompatActivity {
         ratings = (TextView) findViewById(R.id.rating);
         setCount = (TextView) findViewById(R.id.setCount);
         addReview = (Button) findViewById(R.id.addReview);
+        nav_btn = findViewById(R.id.navigationButton);
+
 
         if(getIntent() != null)
         {
@@ -81,11 +87,20 @@ public class RestDetails extends AppCompatActivity {
         rest.child(restId).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                restaurant restaurant = dataSnapshot.getValue(com.example.cityguide.HelperClasses.Home.restaurant.class);
+                final restaurant restaurant = dataSnapshot.getValue(com.example.cityguide.HelperClasses.Home.restaurant.class);
                 Picasso.get().load(restaurant.getImage()).into(restImage);
                 restName.setText(restaurant.getRestName());
                 addressDetails.setText(restaurant.getAddress());
                 //address.setText(restaurant.getAddress());
+                nav_btn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(Intent.ACTION_VIEW,
+                                Uri.parse("google.navigation:q=" + Uri.encode(restaurant.getRestName() )));
+                        intent.setPackage("com.google.android.apps.maps");
+                        startActivity(intent);
+                    }
+                });
                 description.setText(restaurant.getDescription());
                 ratings.setText(restaurant.getStarsTillNow());
                 setCount.setText(restaurant.getCustomercount());

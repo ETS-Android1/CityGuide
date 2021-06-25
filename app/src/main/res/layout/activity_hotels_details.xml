@@ -239,7 +239,12 @@
                         <!--                                android:textSize="12dp" />-->
                         <!--                        </LinearLayout>-->
                     </LinearLayout>
-
+                    <Button
+                        android:id="@+id/navigationButtonhotels"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="155dp"
+                        android:text="Navigate" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
